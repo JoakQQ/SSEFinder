@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>add relationship</title>
+{% endblock %}
+{% block body %}
+
+
+<a href="{% url 'home' %}">
+      homepage
+</a>
+> add relationship
+<h3><span style = "position: relative; left:30%">Add Relationship</span></h3>
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+    <button id="cancel"><a href="{% url 'home' %}">Cancel</a></button>
+</form>
+
+{{value|linebreaks}}
+case not in list?
+<a href="{% url 'add_CaseRecord' %}">
+      add case
+</a>
+
+{{value|linebreaks}}
+event not in list?
+<a href="{% url 'add_EventRecord' %}">
+      add event
+</a>
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li>
+        {{ message }}
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+{% endblock %}

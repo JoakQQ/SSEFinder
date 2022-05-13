@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>add case record</title>
+{% endblock %}
+{% block body %}
+
+<a href="{% url 'home' %}">
+      homepage
+</a>
+> add case record
+<h3><span style = "position: relative; left:30%">Add Case Record</h3>
+
+<span style = "position: relative; left:3%">
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+    <button id="cancel"><a href="{% url 'home' %}">Cancel</a></button>
+</form></span>
+
+{% endblock %}
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(
+        function(){
+          $("#cancel").click(function(){
+              window.CaseRecord.replace("{% url 'CaseRecord' %}")
+          });
+        }
+    )
+</script> -->

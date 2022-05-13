@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Homepage</title>
+{% endblock %}
+{% block body %}
+<h3><span style = "position: relative; left:30%">Homepage</span></h3>
+<ul>Welcome!</ul>
+<br>
+<ul> Create new Case record by clicking the below link </ul>
+<span style = "position: relative; left:3%"><button id = "create"><a href="CaseRecord">Create case record</a></button></span>
+<p></p>
+<ul> Create new venue record by clicking the below link </ul>
+<span style = "position: relative; left:3%"><button id = "create"><a href="VenueRecord">Create venue record</a></button></span>
+<p></p>
+<ul>View case detail by providing case number:
+<form action="{% url 'viewCase' %}" method="get">
+  {% csrf_token %}
+  <input type = "text" name = "q" placeholder = "Enter unique case no.">
+  <button type="submit">go!</button>
+</form></ul>
+<p></p>
+<ul> View potential SSE by providing date range: </ul>
+<span style = "position: relative; left:2%"><button id = "create">
+<form action="{% url 'viewSSE' %}" method="get">
+  {% csrf_token %}
+  Start date: <input type = "date" name = "start">
+  <p></p>
+  End date: <input type = "date" name = "end">
+  <button type="submit">go!</button>
+</form></span></ul>
+<p></p>
+<ul> Link case to events by clicking the below link </ul>
+<span style = "position: relative; left:3%"><button id = "viewSSE"><a href="RelationshipRecord">Link case to event</a></button></span>
+<!-- <button type="button" class="btn btn-link"><a href="CaseRecord">Create case record</a></button>
+<button type="button" class="btn btn-link"><a href="RelationshipRecord">Link case to event</a></button>
+<button type="button" class="btn btn-link"><a href="viewCase">View case detail</a></button>
+<button type="button" class="btn btn-link"><a href="viewSSE">View potential SSE</a></button> -->
+{% endblock %}

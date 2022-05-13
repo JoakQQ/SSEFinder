@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>case record update</title>
+{% endblock %}
+{% block body %}
+<h3><span style = "position: relative; left:30%">Please Provide Your Input for Creating Venue</span></h3>
+
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Update">
+    <button id="cancel">Cancel</button>
+</form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(
+        function(){
+          $("#cancel").click(function(){
+              window.EventRecord.replace("{% url 'home' %}")
+          })
+        }
+    )
+</script>
+
+{% endblock %}

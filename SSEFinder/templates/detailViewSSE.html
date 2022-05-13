@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>view potential SSE detail</title>
+{% endblock %}
+{% block body %}
+<a href="{% url 'home' %}">
+      homepage
+</a>
+> view potential SSE detail
+<h3><span style = "position: relative; left:30%">View potential SSE detail</h3>
+  <p> Start date: {{ start }} </p>
+  <p> End date: {{ end }} </p>
+  <p> Number of person involved in this event: {{numCases}} </p>
+  <p style="font-weight: bold;"> Event ID: {{ pk }} </p>
+  <p style="font-weight: bold;"> Event Date: {{ date }} </p>
+
+  {% load django_tables2 %}
+  {% render_table table3 %}
+
+  {% if check1 %}
+  <h3> Possible Infector(s) </h3>
+  {% load django_tables2 %}
+  {% render_table table1 %}
+  {% else %}
+  <h3> No possible infector is detected </h3>
+  {% endif %}
+
+<p> </p>
+
+  {% if check2 %}
+  <h3> Possible Infected Case(s) </h3>
+  {% load django_tables2 %}
+  {% render_table table2 %}
+  {% else %}
+  <h3> No possible infected case is detected </h3>
+  {% endif %}
+
+<button type="button" class="btn btn-link"><a href="{% url 'home' %}">Back to homepage</a></button>
+<button id="back" class="btn btn-link"><a href="javascript:history.back()">Back to All SSE</a></button>
+{% endblock %}

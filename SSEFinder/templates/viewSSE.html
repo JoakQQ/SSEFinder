@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>view potential SSE</title>
+{% endblock %}
+{% block body %}
+<a href="{% url 'home' %}">
+      homepage
+</a>
+> view potential SSE
+<h3><span style = "position: relative; left:30%">View potential SSE</h3>
+  <p> Start date: {{ start }} </p>
+  <p> End date: {{ end }} </p>
+  <p> This page only shows top level potential SSE, for details, please click on "view detail" for each SSE </p>
+  {% if check %}
+  {% load django_tables2 %}
+  {% render_table table1 %}
+
+  {% else %}
+  <p> No record for the provided date range! </p>
+  {% endif %}
+<button type="button" class="btn btn-link"><a href="{% url 'home' %}">Back to homepage</a></button>
+{% endblock %}

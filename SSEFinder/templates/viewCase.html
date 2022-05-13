@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>view case detail</title>
+{% endblock %}
+{% block body %}
+<a href="{% url 'home' %}">
+      homepage
+</a>
+> view case detail
+<h3><span style = "font-weight: bold; position: relative; left:30%"> Viewing case detail</h3></span>
+<h3> Case number: {{ number }} </h3>
+
+{% if check1 %}
+{% load django_tables2 %}
+{% render_table table1 %}
+{% else %}
+<p> No record for the provided case number! </p>
+{% endif %}
+
+{% if check2 %}
+<h3> Attended Event(s) </h3>
+{% load django_tables2 %}
+{% render_table table2 %}
+{% else %}
+<p> No record for attended event! </p>
+{% endif %}
+
+<p></p>
+<button type="button" class="btn btn-link"><a href="{% url 'home' %}">Back to homepage</a></button>
+{% endblock %}

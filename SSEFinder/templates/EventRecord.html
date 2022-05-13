@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>create case record</title>
+{% endblock %}
+{% block body %}
+<h3><span style = "position: relative; left:30%">Please Check Your Input for Creating Venue</span></h3>
+
+<ul>
+{% for venue in object_list %}
+{% if forloop.first %}
+    Venue Name: {{venue.venueName}}
+    <p></p>
+
+    Venue Location: {{venue.venueLocation}}
+    <p></p>
+
+    Venue Address: {{venue.venueAddress}}
+    <p></p>
+
+    X Coordinate: {{venue.xCoord}}
+    <p></p>
+
+    Y Coordinate: {{venue.yCoord}}
+    <p></p>
+
+    <button id="confirm"><a href="{% url 'home' %}">Confirm</button>
+    <button id="Update"><a href="{% url 'update_VenueRecord' venue.pk %}">Edit</a></button>
+    <button id="Cancel"><a href="{% url 'delete_VenueRecord' venue.pk %}">Delete</a></button>
+{%endif%}
+{% endfor %}
+</ul>
+
+{% endblock %}

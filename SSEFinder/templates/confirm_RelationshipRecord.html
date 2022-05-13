@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>confirm relationship</title>
+{% endblock %}
+{% block body %}
+<h3><span style = "position: relative; left:30%">Confirmation for linking case to event</span></h3>
+
+<h4>Case:</h4>
+Case number: {{caseNumber}}
+{{value|linebreaks}}
+
+Person name: {{personName}}
+{{value|linebreaks}}
+
+Identity Document Number: {{identityDocumentNumber}}
+{{value|linebreaks}}
+
+Date of Birth: {{dateOfBirth}}
+{{value|linebreaks}}
+
+Date of Oneset of Symptoms: {{dateOfOnesetOfSymptoms}}
+{{value|linebreaks}}
+
+Date of Confirmation of Infection by Testing: {{dateOfConfirmationOfInfectionByTesting}}
+{{value|linebreaks}}
+<br>
+<h4>Event: (attended on {{event_date}})</h4>
+Venue: {{venue_name}} ({{x_coord}}, {{y_coord}})
+{{value|linebreaks}}
+
+Venue location: {{venue_location}}
+{{value|linebreaks}}
+
+Venue address: {{venue_address}}
+{{value|linebreaks}}
+
+Description: {{description}}
+{{value|linebreaks}}
+
+<button type="button"><a href="{% url 'add_RelationshipRecord' %}"> Confirm </a></button>
+<button type="button"><a href="{% url 'update_RelationshipRecord' obj_id=obj.pk %}"> Update </a></button>
+<button type="button"><a href="{% url 'delete_RelationshipRecord' obj_id=obj.pk %}"> Delete </a></button>
+
+{% endblock %}

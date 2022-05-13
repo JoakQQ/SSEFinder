@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>add venue record</title>
+{% endblock %}
+{% block body %}
+<a href="{% url 'home' %}">
+      homepage
+</a>
+> add venue record
+<h3><span style = "position: relative; left:30%">Add Venue</span></h3>
+Venue address, X coordinate and Y coordinate will be obtained automatically from GeoData Store. You can check the preview after clicking "Submit"
+<br>
+<br>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+    <button id="cancel"><a href="{% url 'home' %}">Cancel</a></button>
+</form>
+
+{% endblock %}
